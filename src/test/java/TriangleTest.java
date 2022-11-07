@@ -16,6 +16,11 @@ public class TriangleTest {
       assertEquals(true, t.isImpossible());
    }
    @Test
+   public void testImpossible2() {
+      Triangle t = new Triangle(-1, 2, 0);
+      assertEquals(true, t.isImpossible());
+   }
+   @Test
    public void testEquilateral() {
       Triangle t = new Triangle(1, 1, 1);
       assertEquals(true, t.isEquilateral());
@@ -34,12 +39,31 @@ public class TriangleTest {
    public void testEquilateral4() {
       Triangle t = new Triangle(1, -1, 0);
       assertEquals(false, t.isEquilateral());
-   }/* 
+   }
+   public void testEquilateral5() {
+      Triangle t = new Triangle(1, -1, Integer.MAX_VALUE + 1);
+      assertEquals(true, t.isEquilateral());
+   }
    @Test
    public void testIsosceles() {
       Triangle t = new Triangle(1, 1, 2);
-      assertEquals(Triangle.P_ISOSCELES, t.getType());
+      assertEquals(true, t.isIsosceles());
    }
+   @Test
+   public void testIsosceles1() {
+      Triangle t = new Triangle(2, 1, 2);
+      assertEquals(true, t.isIsosceles());
+   }
+   @Test
+   public void testIsosceles2() {
+      Triangle t = new Triangle(1, 1, 1);
+      assertEquals(false, t.isIsosceles());
+   }
+   @Test
+   public void testIsosceles3() {
+      Triangle t = new Triangle(-1, -1, 2);
+      assertEquals(false, t.isIsosceles());
+   }/*
    @Test
    public void testScalene() {
       Triangle t = new Triangle(1, 2, 3);
